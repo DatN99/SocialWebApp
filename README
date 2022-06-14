@@ -1,6 +1,8 @@
 Website is based off of MERN (Mongo, Express, React, Node) full-stack. 
 
 (6/14/22)
+Added new pages (Home, Login, AccountInfo). Defualt page is Home. Routing is done with react-router-dom
+
 (server/Users.js)
 UserModel and UserSchema are created here. UserSchema includes (1)first_name, (2)last_name, (3)age, (4)email, (5)username, (6)password.
 
