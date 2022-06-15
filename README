@@ -7,8 +7,7 @@ Added new pages (Home, Login, AccountInfo). Defualt page is Home. Routing is don
 UserModel and UserSchema are created here. UserSchema includes (1)first_name, (2)last_name, (3)age, (4)email, (5)username, (6)password.
 
 (server/index.js)
-Functionality for login and creation has been added using Express POST method. Account Verification is done through UserModel.find(). Account info (login/creation) 
-sends POST request to MongoDB.
+Functionality for login and creation has been added using Express GET and POST method, respectively. Account Verification is done through a GET request and  UserModel.find(). Logging in sends a GET request to the server which returns a response that is passed onto /AccountInfo using react-router-dom navigate().
 
 (client/App.js)
-Functionality for creating and logging in a user done through Axios POST. Account info goes to server/index.js and into MongoDB
+Functionality for creating and logging in a user done through Axios POST and GET, respectively. Account creation info goes to server/index.js and into MongoDB
