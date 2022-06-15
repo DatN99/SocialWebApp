@@ -14,8 +14,12 @@ app.use(cors())
 mongoose.connect("mongodb+srv://dbUsername123:dbPassword123@cluster0.zwu1a.mongodb.net/UserDatabase?retryWrites=true&w=majority")
 
 /* Handle GET request */
-app.get("/getUsers", (req, res) => {
-    UserModel.find({}, (err, result) => {
+app.get("/getUser", (req, res) => {
+
+    const username = req.query.username
+    const password = req.query.password
+    
+    UserModel.find({username: username, password:password}, (err, result) => {
         if (err) {
             res.json(err)
         }
@@ -24,6 +28,7 @@ app.get("/getUsers", (req, res) => {
             res.json(result)
         }
     })
+    
 
 
 })
@@ -38,10 +43,10 @@ app.post("/createUser", async (req, res) => {
 })
 
 /* Handle POST request for logging in user */
-app.post("/login", async (req, res) => {
-    const username = req.body.login_username
-    const password = req.body.login_password
+app.get("/login", (req, res) => {
 
+    const username = req.query.username
+    const password = req.query.password 
 
     UserModel.find({username: username, password: password}, (err, result) => {
         if (err) {
@@ -56,7 +61,9 @@ app.post("/login", async (req, res) => {
         else {
             console.log("User found")
 
-            console.log(result[0].first_name)
+            /* sends info back to client */
+            res.json(result)
+
         }
 
     })
