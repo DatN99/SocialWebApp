@@ -13,6 +13,14 @@ Functionality for login and creation has been added using Express GET and POST m
 Functionality for creating and logging in a user done through Axios POST and GET, respectively. Account creation info goes to server/index.js and into MongoDB
 
 (6/15/22)
-
 (client/elements/AccountInfo.jsx
 Added functionality to /AccountInfo. Page now displays name, age, and email retrieved from params passed by /Login. Display is done with Infolist.map().
+
+(6/16/22)
+(server/index.js)
+Figured out how to use yelp-fusion API to get a city's bars info
+
+(client/BarSearch)
+Created new page for searching bars. Need to figure out how to load the map onto the page
+
+
