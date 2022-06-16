@@ -10,6 +10,7 @@ import {
 import AccountInfo from "./elements/AccountInfo"
 import Home from "./elements/Home"
 import Login from "./elements/Login"
+import BarSearch from "./elements/BarSearch"
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
             <Route path="/" element={<Home/>}/>
             <Route path="/Login" element={<Login/>}/>
             <Route path="/AccountInfo" element={<AccountInfo/>}/>
+            <Route path="/BarSearch" element={<BarSearch/>}/>
           </Routes>
         </Router>
       </div>
