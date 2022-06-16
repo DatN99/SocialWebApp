@@ -3,7 +3,7 @@ const app = express()
 const mongoose = require('mongoose')
 const UserModel = require('./models/Users')
 const cors = require('cors')
-
+const yelp = require('yelp-fusion')
 
 /* For reading POST body in JSON format*/
 app.use(express.json())
@@ -70,6 +70,40 @@ app.get("/login", (req, res) => {
 
 })
 
+/*
+const client = yelp.client("8xSpbMMBrivwPZvAuoY_6Y99Emj_PrBtJefQcsUZ_7oiUb_esR633CTfHGUp0dSAn3T_ucSuX6pSnugHldH-01JThflBrTM_6CmzloV1DnNNGVjWpTZ1S9Yi3E6qYnYx")
+
+const searchRequest = {
+    "categories": "bars"
+}
+
+client.search(searchRequest).then(response => {
+    const firstResult = response.jsonBody.businesses[0]
+    console.log(firstResult)
+
+
+})
+*/
+
+const client = yelp.client("8xSpbMMBrivwPZvAuoY_6Y99Emj_PrBtJefQcsUZ_7oiUb_esR633CTfHGUp0dSAn3T_ucSuX6pSnugHldH-01JThflBrTM_6CmzloV1DnNNGVjWpTZ1S9Yi3E6qYnYx")
+const searchRequest = {
+    
+    categories:'bars,nightlife',
+    location:'fairfax, va'
+    
+}
+
+
+client.search(searchRequest).then(response => {
+    const Results = response.jsonBody.businesses
+
+    for (let i = 0; i < Results.length; i++){
+        console.log(Results[i].name)
+        console.log(Results[i].location)
+    }
+
+
+})
 
 /* Connect to server using Express*/
 app.listen(3001, () => {console.log("Serving Starting...")})
